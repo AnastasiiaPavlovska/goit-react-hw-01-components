@@ -5,7 +5,7 @@ import { Section, StatList, ListItem } from "./Statistics.styled"
 export const Statistics = ({ stats, title }) => {
     return (
         <Section>
-            <h2 >{title}</h2>
+            {title && <h2>{title}</h2>}
 
             <StatList>
                 {stats.map(({ id, label, percentage }) => (
@@ -25,5 +25,6 @@ Statistics.propTypes = {
             id: PropTypes.string.isRequired,
             percentage: PropTypes.number.isRequired
         }),
-    )
-}
+    ).isRequired,
+    title: PropTypes.string
+};
